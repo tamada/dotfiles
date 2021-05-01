@@ -1,0 +1,1 @@
+/Users/tamada/etc/.bash_profile
