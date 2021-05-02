@@ -1,5 +1,5 @@
-export GS_HOME=/usr/local/share/ghostscript/9.50/
-export GS_LIB=${GS_HOME}/lib:${GS_HOME}/Resource/Init
+export GS_HOME=/usr/local/opt/ghostscript
+export GS_LIB=${GS_HOME}/lib
 
 export HISTCONTROL=ignoredups:ignorespace
 export HISTTIMEFORMAT='%F %T '
