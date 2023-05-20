@@ -1,0 +1,12 @@
+__exist_command () {
+    type $1 2>&1 > /dev/null
+    echo $?
+}
+
+if [[ $(__exist_command exa) -eq 0 ]]; then
+    alias ls='command exa -F -G'
+fi
+
+if [[ $(__exist_command podman) -eq 0 && $(__exist_command docker) -eq 1 ]]; then
+    alias docker=podman
+fi

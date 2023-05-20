@@ -27,9 +27,6 @@ setopt hist_expire_dups_first   # HISTFILEのサイズがHISTSIZEを超える場
 autoload -Uz colors; colors
 # End of lines configured by zsh-newuser-install
 
-alias ls='exa -F '
-alias openvs='open -a "Visual Studio Code" '
-
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -41,7 +38,7 @@ PROMPT='%n@%m %c'\$vcs_info_msg_0_' %# '
 precmd(){ vcs_info }
 
 eval "$(sibling --init bash)"
-eval "$(rrh init --shell zsh)"
+# eval "$(rrh init --shell zsh)"
 . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 
 fpath=(
@@ -124,3 +121,5 @@ zinit light romkatv/powerlevel10k
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source $HOME/.aliases

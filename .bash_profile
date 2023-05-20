@@ -4,9 +4,6 @@ export GS_LIB=${GS_HOME}/lib
 export HISTCONTROL=ignoredups:ignorespace
 export HISTTIMEFORMAT='%F %T '
 
-alias ls='command exa -G -F -h'
-alias openvs='open -a "Visual Studio Code" '
-
 export BREW_PREFIX=$(brew --prefix)
 
 if [[ -f $BREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
@@ -29,3 +26,5 @@ eval "$(sibling --init bash)"
 
 . $(brew --prefix asdf)/lib/asdf.sh
 . "$HOME/.cargo/env"
+
+source $HOME/.aliases
