@@ -3,10 +3,12 @@ __exist_command () {
     echo $?
 }
 
-if [[ $(__exist_command exa) -eq 0 ]]; then
-    alias ls='command exa -F -G'
+if [[ $(__exist_command eza) -eq 0 ]]; then
+    alias ls='command eza -F -G'
 fi
 
 if [[ $(__exist_command podman) -eq 0 && $(__exist_command docker) -eq 1 ]]; then
     alias docker=podman
 fi
+
+alias openvs="open -a 'Visual Studio Code' "
