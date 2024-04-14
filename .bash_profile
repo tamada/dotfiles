@@ -1,6 +1,3 @@
-export GS_HOME=/usr/local/opt/ghostscript
-export GS_LIB=${GS_HOME}/lib
-
 export HISTCONTROL=ignoredups:ignorespace
 export HISTTIMEFORMAT='%F %T '
 
@@ -16,16 +13,26 @@ fi
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\e[32m\]\u@\h\[\e[00m\]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+
+export GS_HOME=$(brew --prefix ghostscript)
+export GS_LIB=${GS_HOME}/lib
 export GO_HOME=${HOME}/go
 
 export PATH=$PATH:$HOME/bin:$BREW_PREFIX/sbin:$GO_HOME/bin
 
-[ -f /usr/local/etc/profile.d/bash-preexec.sh ] && . /usr/local/etc/profile.d/bash-preexec.sh
+if [[ -f ${BREW_PREFIX}/etc/profile.d/bash-preexec.sh ]]; then 
+  . ${BREW_PREFIX}/etc/profile.d/bash-preexec.sh
+fi 
 
-eval "$(sibling --init bash)"
+if [[ $(which sibling) ]]; then
+  eval "$(sibling --init bash)"
+fi
 
-. $(brew --prefix asdf)/lib/asdf.sh
-. "$HOME/.cargo/env"
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+if [[ -d $HOME/.cargo ]]; then
+  . "$HOME/.cargo/env"
+fi
 
 if [[ -d $HOME/bin ]]; then
   export PATH=$PATH:$HOME/bin
