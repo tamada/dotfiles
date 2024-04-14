@@ -27,4 +27,8 @@ eval "$(sibling --init bash)"
 . $(brew --prefix asdf)/lib/asdf.sh
 . "$HOME/.cargo/env"
 
+if [[ -d $HOME/bin ]]; then
+  export PATH=$PATH:$HOME/bin
+fi
+
 source $HOME/.aliases
