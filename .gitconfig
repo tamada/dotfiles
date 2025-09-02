@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-	name = Haruaki Tamada
-	email = tamada@users.noreply.github.com
+    name = Haruaki Tamada
+    email = tamada@users.noreply.github.com
+
 [core]
     pager = delta
 
@@ -19,21 +19,24 @@
     colorMoved = default
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
 [pull]
-	rebase = false
+    rebase = false
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [alias]
-	current-branch-name = ! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
-	force-pull = !git fetch && git reset --hard origin/$(git current-branch-name)
+    current-branch-name = ! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
+    force-pull = !git fetch && git reset --hard origin/$(git current-branch-name)
 
 [column]
-	ui = auto
+    ui = auto
 [branch]
-	sort = -committerdate
+    sort = -committerdate
+
+[include]
+    path = ~/.config/git/local.gitconfig

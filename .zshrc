@@ -37,19 +37,16 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 PROMPT='%n@%m %c'\$vcs_info_msg_0_' %# '
 precmd(){ vcs_info }
 
-eval "$(sibling --init bash)"
+eval "$(sibling --init zsh)"
 # eval "$(rrh init --shell zsh)"
-. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+eval "$(mise activate)"
 
 fpath=(
     $HOMEBREW_PREFIX/share/zsh/site-functions
-    $HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d
     $HOMEBREW_PREFIX/share/zsh-completions
     $fpath
 )
 autoload -Uz bashcompinit && bashcompinit
-
-. $HOMEBREW_PREFIX/opt/asdf/etc/bash_completion.d/asdf.bash
 
 # The following lines were added by compinstall
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
