@@ -16,3 +16,4 @@ alias openvs='open -a "Visual Studio Code" '
 topen() { [[ ! -f "$1" ]] && touch "$1"; open "$1"; }
 
 alias completely='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/completely'
+alias daily_finalier='copilot -p @/Users/tamada/obsidian/.obsidian/plugins/daily-finalizer/prompt_for_copilot.md'

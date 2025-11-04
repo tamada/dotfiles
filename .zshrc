@@ -120,3 +120,10 @@ zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source $HOME/.aliases
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/tamada/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+source $HOME/.functions/thino

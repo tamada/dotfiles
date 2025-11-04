@@ -1,0 +1,20 @@
+# thinoコマンド
+function thino() {
+    VAULT_NAME="obsidian"
+    VAULT_PHYSICAL_PATH="${HOME}/products/${VAULT_NAME}"
+
+    DAILY_NOTE_RELATIVE_PATH="Dialy/$(date +'%Y-%m-%d').md"
+    TEMPLATE_RELATIVE_PATH="config/templates//daily-notes-template.md"
+
+    DAILY_NOTE_FULL_PATH="${VAULT_PHYSICAL_PATH}/${DAILY_NOTE_RELATIVE_PATH}"
+    TEMPLATE_FULL_PATH="${VAULT_PHYSICAL_PATH}/${TEMPLATE_RELATIVE_PATH}"
+
+    if [ ! -f "$DAILY_NOTE_FULL_PATH" ]; then
+        echo "create a daily note from template because, no daily notes exists..."
+        cp "$TEMPLATE_FULL_PATH" "$DAILY_NOTE_FULL_PATH"
+    fi
+
+    CONTENT="$1"
+    FORMATED_CONTENT=$'\n- '`date +'%H:%M'`' '"$CONTENT"
+    echo -n $FORMATED_CONTENT >> "$DAILY_NOTE_FULL_PATH"
+}
