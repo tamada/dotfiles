@@ -37,8 +37,7 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 PROMPT='%n@%m %c'\$vcs_info_msg_0_' %# '
 precmd(){ vcs_info }
 
-eval "$(sibling --init zsh)"
-# eval "$(rrh init --shell zsh)"
+eval "$(sibling --init bash)"
 eval "$(mise activate)"
 
 fpath=(
@@ -127,3 +126,5 @@ compinit
 # End of Docker CLI completions
 
 source $HOME/.functions/thino
+. "$HOME/.cargo/env"
+
