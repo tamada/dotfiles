@@ -127,4 +127,3 @@ compinit
 
 source $HOME/.functions/thino
 . "$HOME/.cargo/env"
-

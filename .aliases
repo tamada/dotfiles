@@ -1,3 +1,4 @@
+# This local function returns the 0 as status code `$?` when the given command exists, otherwise returns non 0.
 __exist_command () {
     type $1 2>&1 > /dev/null
     echo $?
@@ -7,7 +8,7 @@ if [[ $(__exist_command eza) -eq 0 ]]; then
     alias ls='command eza -F -G'
 fi
 
-if [[ $(__exist_command podman) -eq 0 && $(__exist_command docker) -eq 1 ]]; then
+if [[ $(__exist_command podman) -eq 0 && $(__exist_command docker) -ne 0 ]]; then
     alias docker=podman
 fi
 
@@ -16,4 +17,7 @@ alias openvs='open -a "Visual Studio Code" '
 topen() { [[ ! -f "$1" ]] && touch "$1"; open "$1"; }
 
 alias completely='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/completely'
-alias daily_finalier='copilot -p @/Users/tamada/obsidian/.obsidian/plugins/daily-finalizer/prompt_for_copilot.md'
+
+if [[ $(__exist_command copilot) -eq 0 ]]; then
+    alias daily_finalizer='copilot -p @/Users/tamada/products/obsidian/.obsidian/plugins/daily-finalizer/prompt_for_copilot.md'
+fi

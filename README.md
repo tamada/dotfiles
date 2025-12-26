@@ -4,7 +4,19 @@ my dotfiles.
 
 ## :ant: Supported dotfiles
 
+### :shell: Bash
+
 * `.bash_profile`
+
+### :shell: Zsh
+
+* `.zshrc`
+  * `.functions`
+
+### Others
+
+* `.aliases`
+  * my alias list.
 * `.gitconfig`
 * `.aliases`
   * `eza` as `ls` if exists.
